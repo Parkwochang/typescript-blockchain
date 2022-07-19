@@ -52,3 +52,21 @@ const dict = new Dict();
 
 dict.add(kimchi);
 dict.def("kimchi");
+
+type Team = "red" | "blue" | "yellow";
+type Health = 1 | 5 | 10;
+
+interface Player {
+  nickname: string;
+  team: Team;
+  health: Health;
+}
+//인터페이스는 타입스크립트에게 오브젝트의 모양을 설명해주는 하나의 목적으로만 사용가능
+
+interface Person {}
+
+const nilo: Player = {
+  nickname: "nico",
+  team: "yellow",
+  health: 10,
+};
