@@ -53,20 +53,26 @@ const dict = new Dict();
 dict.add(kimchi);
 dict.def("kimchi");
 
-type Team = "red" | "blue" | "yellow";
-type Health = 1 | 5 | 10;
-
-interface Player {
-  nickname: string;
-  team: Team;
-  health: Health;
+interface Userq {
+  name: string;
 }
-//인터페이스는 타입스크립트에게 오브젝트의 모양을 설명해주는 하나의 목적으로만 사용가능
+interface Userq {
+  lasteName: string;
+}
+interface Userq {
+  health: number;
+}
+//인터페이스를 3번 각각 만들기만 하면, 타입스크립트가 알아서 하나로 합쳐준다
 
-interface Person {}
-
-const nilo: Player = {
-  nickname: "nico",
-  team: "yellow",
+interface Playerq extends Userq {}
+const nilo: Playerq = {
+  name: "nico",
+  lasteName: "n",
   health: 10,
 };
+
+abstract class Userk {
+  constructor(protected firstName: string, protected lastName: string) {}
+  abstract sayHi(name: string): string;
+  abstract fullName(): string;
+}
